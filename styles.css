@@ -1,0 +1,36 @@
+/* *********GLOBAL********** */
+html {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+
+}
+
+body {
+  display: flex;
+  flex: auto;
+  align-items: stretch;
+}
+
+
+/* ******PLAYER 1 SIDE****** */
+
+.player-1-side {
+  background: linear-gradient(#FF5F6D, #FFC371);
+  flex-grow: 1;
+}
+
+/* *******GAME BOARD******** */
+
+.game-board {
+  background: linear-gradient(#FFC371, #f79d00, #64f38c, #36D1DC);
+  flex-grow: 2;
+}
+
+/* ******PLAYER 2 SIDE****** */
+
+.player-2-side {
+  background: linear-gradient(#36D1DC, #5B86E5);
+  flex-grow: 1;
+}
