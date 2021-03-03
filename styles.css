@@ -1,4 +1,8 @@
 /* *********GLOBAL********** */
+* {
+  border: 1px pink solid;
+}
+
 html {
   display: flex;
   align-items: stretch;
