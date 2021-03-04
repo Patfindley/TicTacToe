@@ -6,13 +6,35 @@
   </head>
   <body>
     <aside class="player-1-side">
-      player 1
+      <section class="player-1-container">
+        <h2 class="player-1-name">player 1<h2>
+        <h3 class="player--1-wins" placeholder="wins">wins<h3>
+      </section>
     </aside>
-    <section class="game-board">
-      Game Board
-    </section>
+    <main class="game-board">
+      <table>
+        <tr>
+          <td></td>
+          <td class="vertical"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="horizontal"></td>
+          <td class="vertical horizontal"></td>
+          <td class="horizontal"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="vertical"></td>
+          <td></td>
+        </tr>
+      </table>
+    </main>
     <aside class="player-2-side">
-      player 2
+      <section class="player-2-container">
+        <h2 class="player-2-name">player 2<h2>
+        <h3 class="player--2-wins" placeholder="wins">wins<h3>
+      </section>
     </aside>
     <script src="./player.js"></script>
     <script src="./game.js"></script>
