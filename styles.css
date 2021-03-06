@@ -1,9 +1,10 @@
 /* *********GLOBAL********** */
-* {
+/* * {
   border: 1px red solid;
-}
+} */
 
 html {
+  font-family: sans-serif;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -59,6 +60,7 @@ body {
 }
 
 .block {
+  border: 0;
   width: 33%;
   height: 33%;
   background-color: white;
