@@ -22,13 +22,22 @@ class Game {
   }
 };
 
-givePlayerSpot(move) {
- if (this.turn) {
-   this.player1Moves.push(move);
- } else {
+  givePlayerSpot(move) {
+  if (this.turn) {
+  this.player1Moves.push(move);
+  } else {
    this.player2Moves.push(move);
  }
 }
+
+  checkWin() {
+  if (this.player1Moves.includes("a1" && "a2" && "a3") ||
+  this.player1Moves.includes("b1" && "b2" && "b3")) {
+  console.log("WIN!");
+  setTimeout(function() {
+  console.log("WINNER!"); }, 1000);
+    }
+  }
 
 
 }
