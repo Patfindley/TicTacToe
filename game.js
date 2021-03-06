@@ -1,11 +1,13 @@
+
+
 class Game {
   constructor(player1, player2) {
     this.player1 = player1;
     this.player2 = player2;
-    this.isDraw = false;
-    this.turn = true;
+    this.turn = this.player1;
     this.player1Moves = [];
-    this.player2Moves = []
+    this.player2Moves = [];
+    // this.isDraw = false;
   }
 
   winningGameData() {};
@@ -13,19 +15,20 @@ class Game {
   resetGame() {};
 
   changePlayer() {
-  console.log("pre-click", this.turn);
-  console.log("true = player1, false = player2");
-  if (this.turn === true || this.turn === false) {
-     this.turn = !this.turn;
-    console.log("post click", this.turn);
+    console.log(`${this.turn.name} `);
+  if (this.turn === this.player1) {
+    this.turn = this.player2;
+    return
+  } else if (this.turn === this.player2) {
+    this.turn = this.player1;
     return;
   }
 };
 
   givePlayerSpot(move) {
-  if (this.turn) {
+  if (this.turn === this.player1) {
   this.player1Moves.push(move);
-  } else {
+} else if (this.turn === this.player2){
    this.player2Moves.push(move);
  }
 }
@@ -36,6 +39,7 @@ class Game {
   console.log("WIN!");
   setTimeout(function() {
   console.log("WINNER!"); }, 1000);
+  return true
     }
   }
 
