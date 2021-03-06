@@ -11,24 +11,24 @@
         <h3 class="player--1-wins" placeholder="wins">wins<h3>
       </section>
     </aside>
-    <main class="game-board">
-      <table>
-        <tr>
-          <td></td>
-          <td class="vertical"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="horizontal"></td>
-          <td class="vertical horizontal"></td>
-          <td class="horizontal"></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td class="vertical"></td>
-          <td></td>
-        </tr>
-      </table>
+    <main class="game-area">
+      <section class="game-board" id="gameBoard">
+        <!-- <div class="row-a"> -->
+          <button class="block a1" id="a1"></button>
+          <button class="block a2" id="a2"></button>
+          <button class="block a3" id="a3"></button>
+        <!-- </div> -->
+        <!-- <div class="row-b"> -->
+          <button class="block b1" id="b1"></button>
+          <button class="block b2" id="b2"></button>
+          <button class="block b3" id="b3"></button>
+        <!-- </div> -->
+        <!-- <div class="row-c"> -->
+          <button class="block c1" id="c1"></button>
+          <button class="block c2" id="c2"></button>
+          <button class="block c3" id="c3"></button>
+        <!-- </div> -->
+      </section>
     </main>
     <aside class="player-2-side">
       <section class="player-2-container">
@@ -36,8 +36,8 @@
         <h3 class="player--2-wins" placeholder="wins">wins<h3>
       </section>
     </aside>
-    <script src="./player.js"></script>
     <script src="./game.js"></script>
+    <script src="./player.js"></script>
     <script src="./src/main.js"></script>
   </body>
 </html>
