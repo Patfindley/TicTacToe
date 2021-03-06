@@ -3,16 +3,26 @@ class Game {
     this.player1 = player1;
     this.player2 = player2;
     this.isDraw = false;
-
+    this.turn = true;
+    this.player1Moves = [];
+    this.player2Moves = []
   }
-  winningGameData() {
 
-  };
+  winningGameData() {};
 
-  resetGame() {
+  resetGame() {};
 
-  };
-  
+  changePlayer() {
+  console.log("pre-click", this.turn);
+  console.log("true = player1, false = player2");
+  if (this.turn === true || this.turn === false) {
+     this.turn = !this.turn;
+    console.log("post click", this.turn);
+    return;
+  }
+};
+
+
 }
 
 
