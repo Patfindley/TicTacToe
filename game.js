@@ -22,6 +22,14 @@ class Game {
   }
 };
 
+givePlayerSpot(move) {
+ if (this.turn) {
+   this.player1Moves.push(move);
+ } else {
+   this.player2Moves.push(move);
+ }
+}
+
 
 }
 
