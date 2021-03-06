@@ -1,6 +1,6 @@
 /* *********GLOBAL********** */
 * {
-  /* border: 1px pink solid; */
+  border: 1px red solid;
 }
 
 html {
@@ -37,36 +37,32 @@ body {
 
 /* *******GAME BOARD******** */
 
-.game-board {
-  background: linear-gradient(#FFC371, #f79d00, #64f38c, #36D1DC);
+/* .a1:disabled {
+  cursor: not-allowed;
+} */
+
+.game-area {
+  background: linear-gradient(#FFC371,#64f38c, #36D1DC);
   flex-grow: 2;
   display:flex;
   justify-content: center;
   align-items: center;
 }
 
-.game-container {
-  /* display: grid; */
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+  height: 50%;
+  /* margin: 5px auto; */
 }
 
-table {
-  margin: 5px auto;
-}
-
-td {
-  width: 8em;
-  height: 8em;
+.block {
+  flex-grow: 1;
+  width: 33%;
+  height: 33%;
   background-color: white;
-}
-
-.vertical {
-  border-left: 20px solid rgba(0, 0, 0, 0.2);
-  border-right: 20px solid rgba(0, 0, 0, 0.2);
-}
-
-.horizontal {
-  border-top: 20px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 20px solid rgba(0, 0, 0, 0.3);
 }
 
 /* ******PLAYER 2 SIDE****** */
