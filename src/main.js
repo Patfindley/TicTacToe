@@ -85,6 +85,15 @@ function gameStats() {
   console.log(game.turn);
 }
 
+function loadPlayerData() {
+  var playerData = [];
+  if (localStorage.length > 0) {
+    var retrievedData = localStorage.getItem("playerData")
+    playerData = JSON.parse(retrievedData);
+    //instantiate storage function(playerData);
+  }
+}
+
 
 function clickSquare(e) {
   var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
@@ -96,10 +105,10 @@ function clickSquare(e) {
       game.givePlayerSpot(squareIds[i]);
       game.checkWin();
       }
-      if (game.checkWin === true) {
-        winTracker();
-        disableAll();
-      }
+    }
+    if (game.isWon) {
+      winTracker();
+      disableAll();
     }
   };
 
@@ -109,26 +118,30 @@ function clickSquare(e) {
   };
 
   function disableAll() {
-    if (game.checkWin === true) {
-    a1.disabled = true;
-    a2.disabled = true;
-    a3.disabled = true;
-    b1.disabled = true;
-    b2.disabled = true;
-    b3.disabled = true;
-    c1.disabled = true;
-    c2.disabled = true;
-    c3.disabled = true;
+    if (game.isWon) {
+      console.log(">>BUTTONS DISABLED<<")
+      a1.disabled = true;
+      a2.disabled = true;
+      a3.disabled = true;
+      b1.disabled = true;
+      b2.disabled = true;
+      b3.disabled = true;
+      c1.disabled = true;
+      c2.disabled = true;
+      c3.disabled = true;
     }
   };
 
   function winTracker() {
-    if (game.checkWin === true) {
+    // if (game.IsWon === true) {
+      console.log(`${game.turn.name} WINS!`)
       game.turn.wins++
-    }
+      game.turn.saveWinsToStorage();
+    // }
   };
 
 
-// disable buttons after win
+
 // commit player objects to local storage;
 //parse win profiles from local storage;
+// flip blue css gradient
