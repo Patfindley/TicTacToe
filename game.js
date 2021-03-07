@@ -7,6 +7,7 @@ class Game {
     this.turn = this.player1;
     this.player1Moves = [];
     this.player2Moves = [];
+    this.isWon = false
     // this.isDraw = false;
   }
 
@@ -16,10 +17,10 @@ class Game {
 
   changePlayer() {
     console.log(`${this.turn.name} `);
-  if (this.turn === this.player1) {
+    if (this.turn === this.player1) {
     this.turn = this.player2;
     return
-  } else if (this.turn === this.player2) {
+    } else if (this.turn === this.player2) {
     this.turn = this.player1;
     return;
   }
@@ -27,19 +28,19 @@ class Game {
 
   givePlayerSpot(move) {
   if (this.turn === this.player1) {
-  this.player1Moves.push(move);
-} else if (this.turn === this.player2){
-   this.player2Moves.push(move);
- }
-}
+    this.player1Moves.push(move);
+    } else if (this.turn === this.player2){
+      this.player2Moves.push(move);
+    }
+  }
 
   checkWin() {
-  if (this.player1Moves.includes("a1" && "a2" && "a3") ||
-  this.player1Moves.includes("b1" && "b2" && "b3")) {
-  console.log("WIN!");
-  setTimeout(function() {
-  console.log("WINNER!"); }, 1000);
-  return true
+    if (this.player1Moves.includes("a1" && "a2" && "a3") ||
+    this.player1Moves.includes("b1" && "b2" && "b3")) {
+      // console.log("WIN!");
+      setTimeout(function() {
+      console.log("WINNER!"); }, 1000); // move to resetGame()
+      this.isWon = true;
     }
   }
 
