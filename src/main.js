@@ -15,9 +15,12 @@ var c1 = document.getElementById("c1");
 var c2 = document.getElementById("c2");
 var c3 = document.getElementById("c3");
 
-var game = new Game();
+var game = new Game;
 // *****EVENT LISTERS*****
-window.addEventListener("load", gameStart() )
+window.addEventListener("load", function(event) {
+  gameStart();
+  loadPlayerData();
+})
 
 gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
@@ -78,12 +81,14 @@ c3.addEventListener("click", function(event) {
 //****FUNCTIONS****
 
 function gameStart() {
-  var player1 = new Player("👹", 0);
-  var player2 = new Player("🧞‍♂️", 0);
-  loadPlayerData()
+
+  var player1 = new Player("👹");
+  var player2 = new Player("🧞‍♂️", null);
+  game = new Game(player1, player2)
   game.player1 = player1;
   game.player2 = player2;
   game.turn = player1;
+  // instantiatePlayerData()
   game.playerData.push(player1);
   game.playerData.push(player2);
   renderGame();
@@ -100,18 +105,20 @@ function loadPlayerData() {
   if (localStorage.length > 0) {
     var retrievedData = localStorage.getItem("playerData")
     parsedPlayerData = JSON.parse(retrievedData);
-    console.log("parsedPlayerData >>>", parsedPlayerData[0]);
+    console.log("parsedPlayerData >>>", parsedPlayerData);
     instantiatePlayerData(parsedPlayerData)
   }
 }
 
 function instantiatePlayerData(parsedPlayerData) {
   for (var i = 0; i < parsedPlayerData.length; i++) {
-    if (parsedPlayerData[i] === "player1") {
+    if (parsedPlayerData[i] === game.player1.name) {
       player1 = new Player(parsedPlayerData[i].name, parsedPlayerData[i].wins);
-    } else if (parsedPlayerData[i] === "player2") {
+    } else if (parsedPlayerData[i] === game.player2.name) {
       player2 = new Player(parsedPlayerData[i].name, parsedPlayerData[i].wins);
     }
+    // game.playerData.push(player1);
+    // game.playerData.push(player2);
   }
 };
 

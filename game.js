@@ -7,7 +7,7 @@ class Game {
     this.turn = this.player1;
     this.player1Moves = [];
     this.player2Moves = [];
-    this.playerData = [player1, player2];
+    this.playerData = [];
     this.isWon = false
     // this.isDraw = false;
   }
