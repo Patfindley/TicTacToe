@@ -1,6 +1,7 @@
 // *****Identifiers*****
 var gameBoard = document.getElementById("gameBoard");
-var allSquares = document.querySelectorAll("button");
+var player1WinCounter = document.getElementById("player1WinCounter");
+var player2WinCounter = document.getElementById("player2WinCounter")
 // *****ROW A*****
 var a1 = document.getElementById("a1");
 var a2 = document.getElementById("a2");
@@ -16,7 +17,7 @@ var c3 = document.getElementById("c3");
 
 var game = new Game();
 // *****EVENT LISTERS*****
-window.addEventListener("load", gameStats() )
+window.addEventListener("load", gameStart() )
 
 gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
@@ -76,23 +77,43 @@ c3.addEventListener("click", function(event) {
 
 //****FUNCTIONS****
 
-function gameStats() {
-  var player1 = new Player("player1", 0);
-  var player2 = new Player("player2", 0);
+function gameStart() {
+  var player1 = new Player("👹", 0);
+  var player2 = new Player("🧞‍♂️", 0);
+  loadPlayerData()
   game.player1 = player1;
   game.player2 = player2;
   game.turn = player1;
+  game.playerData.push(player1);
+  game.playerData.push(player2);
+  renderGame();
   console.log(game.turn);
 }
 
+function renderGame() {
+  player1WinCounter.innerText = `${game.player1.wins}`
+  player2WinCounter.innerText = `${game.player2.wins}`
+}
+
 function loadPlayerData() {
-  var playerData = [];
+  var parsedPlayerData = [];
   if (localStorage.length > 0) {
     var retrievedData = localStorage.getItem("playerData")
-    playerData = JSON.parse(retrievedData);
-    //instantiate storage function(playerData);
+    parsedPlayerData = JSON.parse(retrievedData);
+    console.log("parsedPlayerData >>>", parsedPlayerData[0]);
+    instantiatePlayerData(parsedPlayerData)
   }
 }
+
+function instantiatePlayerData(parsedPlayerData) {
+  for (var i = 0; i < parsedPlayerData.length; i++) {
+    if (parsedPlayerData[i] === "player1") {
+      player1 = new Player(parsedPlayerData[i].name, parsedPlayerData[i].wins);
+    } else if (parsedPlayerData[i] === "player2") {
+      player2 = new Player(parsedPlayerData[i].name, parsedPlayerData[i].wins);
+    }
+  }
+};
 
 
 function clickSquare(e) {
@@ -101,7 +122,7 @@ function clickSquare(e) {
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
       console.log(">>>>>GOT IT!<<<<<<", event.target.classList);
-      square.innerText = "🌶";
+      square.innerText = `${game.turn.name}`;
       game.givePlayerSpot(squareIds[i]);
       game.checkWin();
       }
@@ -132,16 +153,18 @@ function clickSquare(e) {
     }
   };
 
-  function winTracker() {
-    // if (game.IsWon === true) {
-      console.log(`${game.turn.name} WINS!`)
+  function winTracker() { ///// questionable
+      console.log("WIN TRACKER()", `${game.turn.name} WINS!`)
       game.turn.wins++
       game.turn.saveWinsToStorage();
-    // }
+      // game.player2.saveWinsToStorage();
   };
 
 
 
 // commit player objects to local storage;
-//parse win profiles from local storage;
-// flip blue css gradient
+// --- why won't game.data pull player 1 & player 2 data?
+// parse win profiles from local storage;
+// give players unique tokens;
+// flip blue css gradient;
+// add function to determine who goes first based on wins;
