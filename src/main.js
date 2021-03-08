@@ -87,29 +87,20 @@ function gameStart() {
     game.playerData.push(game.player1);
     game.playerData.push(game.player2);
   }
-
-  // var player1 = new Player(1, "👹");
-  // var player2 = new Player(2, "🧞‍♂️");
-  // game = new Game(player1, player2)
-  // game.player1 = player1;
-  // game.player2 = player2;
-  // game.turn = player1;
-  // game.playerData.push(game.player1);
-  // game.playerData.push(game.player2);
   renderGame();
-  console.log(game.turn);
 }
 
 function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
-  // showPlayerTurn();
+  if (game.turnCounter === 0) {
+    console.log("TURN COUNTER>>", game.turnCounter)
   displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S TURN!'`
   displayPlayerTurnToken.innerText = `${game.turn.name}`
+  }
 }
 
 function showPlayerTurn() {
-  console.log("I WORKED")
   if (game.turn.id === "1") {
   displayPlayerTurnId.innerText = `IT'S PLAYER ${game.player2.id}'S TURN!'`
   displayPlayerTurnToken.innerText = `${game.player2.name}`
@@ -132,15 +123,19 @@ function clickSquare(e) {
     }
     if (game.isWon === true) {
       console.log("conditional main.js winner")
-      // winTracker();
-      renderGame()
+      renderGame();
+      winDisplay();
       disableAll();
     } else {
       showPlayerTurn();
-      // console.log("I WORKED")
-
     }
   };
+
+  function winDisplay() {
+    console.log("I WORKED!");
+    displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`
+    displayPlayerTurnToken.innerText = `${game.turn.name}`
+  }
 
   function disableSquare() {
     square = event.target;
