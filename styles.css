@@ -18,6 +18,9 @@ body {
   align-items: stretch;
 }
 
+button:disabled {
+  color:inherit;
+}
 
 /* ******PLAYER 1 SIDE****** */
 

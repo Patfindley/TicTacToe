@@ -163,13 +163,8 @@ function clickSquare(e) {
   };
 
 
-  // have game refresh on
   // fix button color after disabled
 
-// if statement in game start up, if parsedPlayerData > 1; instantiate
-// commit player objects to local storage;
-// --- why won't game.data pull player 1 & player 2 data?
-// parse win profiles from local storage;
 //event.target.disable for square disable
 // give players unique tokens;
 // flip blue css gradient;
