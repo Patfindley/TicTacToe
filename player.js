@@ -1,17 +1,20 @@
 class Player {
-  constructor(name, wins) {
+  constructor(id, name, wins) {
+    this.id = id;
     this.name = name;
-    this.wins = 0 || wins;
-    //this.data = [this.name];
-  }
+    this.wins = wins || 0 ;
+  };
 
   saveWinsToStorage() {
-    //this.data = [this.name, this.wins];
+    var storage = window.localStorage;
+    storage.clear();
     localStorage.setItem("playerData", JSON.stringify(game.playerData));
-  }
+    // localStorage.setItem(this.name, JSON.stringify(this));
 
-  RetrieveWinsFromStorage() {
+  };
 
-  }
+//   RetrieveWinsFromStorage() {
+//
+// }
 
-}
+};
