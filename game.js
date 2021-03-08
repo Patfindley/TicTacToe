@@ -4,6 +4,7 @@ class Game {
     this.player1 = new Player("1", "👹");
     this.player2 = new Player("2", "🧞‍♂️");
     this.turn = this.player1;
+    this.turnCounter = 0;
     this.player1Moves = [];
     this.player2Moves = [];
     this.playerData = [];
@@ -71,7 +72,6 @@ class Game {
       if (parsedPlayerData[i].id === "1") {
         console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
         var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
-        // parsedPlayer = parsedPlayerData[i]
         this.player1 = parsedPlayer1
         this.playerData.push(this.player1);
       } else if (parsedPlayerData[i].id === "2") {

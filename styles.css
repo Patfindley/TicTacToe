@@ -35,19 +35,33 @@ button:disabled {
     align-items: center;
 }
 
-.player-1-name {
+.player-name {
   align-items: center;
+  font-size: 250%;
 }
 
 .player-1-select {
 
 }
 
+.player-wins {
+  font-size: 200%;
+}
+
+.player-wins-counter {
+  font-size: 200%;
+}
+
 /* *******GAME BOARD******** */
 
 .display-player-turn-container {
+  display: flex;
+  justify-content: center;
   width: 100%;
+}
 
+.token {
+font-size: 450%;
 }
 
 
@@ -68,15 +82,16 @@ button:disabled {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 60%;
-  height: 60%;
+  width: 65%;
+  height: 65%;
   /* margin: 5px auto; */
 }
 
 .block {
   border: 0;
-  width: 33%;
-  height: 33%;
+  width: 32%;
+  height: 32%;
+  font-size: 475%;
   background-color: white;
 }
 
