@@ -9,8 +9,6 @@ class Player {
     var storage = window.localStorage;
     storage.clear();
     localStorage.setItem("playerData", JSON.stringify(game.playerData));
-    // localStorage.setItem(this.name, JSON.stringify(this));
-
   };
 
 //   RetrieveWinsFromStorage() {

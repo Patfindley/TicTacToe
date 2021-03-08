@@ -1,8 +1,8 @@
 
 class Game {
   constructor(player1, player2) {
-    this.player1 = new Player("player1", "👹");
-    this.player2 = new Player("player2", "🧞‍♂️");
+    this.player1 = new Player("1", "👹");
+    this.player2 = new Player("2", "🧞‍♂️");
     this.turn = this.player1;
     this.player1Moves = [];
     this.player2Moves = [];
@@ -17,10 +17,10 @@ class Game {
   resetGame() {};
 
   changePlayer() {
-    if (this.turn.id === "player1") {
+    if (this.turn.id === "1") {
     this.turn = this.player2;
     return console.log(`${this.turn.name}'s turn!'`);
-  } else if (this.turn.id === "player2") {
+  } else if (this.turn.id === "2") {
     this.turn = this.player1;
     return console.log(`${this.turn.name}'s turn!'`);
     }
@@ -67,13 +67,13 @@ class Game {
     var parsedPlayer;
     this.playerData = [];
     for (var i = 0; i < parsedPlayerData.length; i++) {
-      if (parsedPlayerData[i].id === "player1") {
+      if (parsedPlayerData[i].id === "1") {
         console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
         var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
         // parsedPlayer = parsedPlayerData[i]
         this.player1 = parsedPlayer1
         this.playerData.push(this.player1);
-      } else if (parsedPlayerData[i].id === "player2") {
+      } else if (parsedPlayerData[i].id === "2") {
         console.log("P2 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
         var parsedPlayer2 = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
         this.player2 = parsedPlayer2;

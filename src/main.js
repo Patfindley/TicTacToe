@@ -1,7 +1,9 @@
 // *****Identifiers*****
 var gameBoard = document.getElementById("gameBoard");
 var player1WinCounter = document.getElementById("player1WinCounter");
-var player2WinCounter = document.getElementById("player2WinCounter")
+var player2WinCounter = document.getElementById("player2WinCounter");
+var displayPlayerTurnId = document.getElementById("displayPlayerTurnId");
+var displayPlayerTurnToken = document.getElementById("displayPlayerTurnToken");
 // *****ROW A*****
 var a1 = document.getElementById("a1");
 var a2 = document.getElementById("a2");
@@ -19,7 +21,6 @@ var game = new Game;
 // *****EVENT LISTERS*****
 window.addEventListener("load", function(event) {
   gameStart();
-  // loadPlayerData();
 })
 
 gameBoard.addEventListener("click", function(event) {
@@ -102,6 +103,20 @@ function gameStart() {
 function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
+  // showPlayerTurn();
+  displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S ${game.turn.name} TURN!'`
+  displayPlayerTurnToken.innerText = `${game.turn.name}`
+}
+
+function showPlayerTurn() {
+  console.log("I WORKED")
+  if (game.turn.id === "1") {
+  displayPlayerTurnId.innerText = `IT'S PLAYER ${game.player2.id}'S TURN!'`
+  displayPlayerTurnToken.innerText = `${game.player2.name}`
+  } else {
+    displayPlayerTurnId.innerText = `IT'S PLAYER ${game.player1.id}'S TURN!'`
+    displayPlayerTurnToken.innerText = `${game.player1.name}`
+  }
 }
 
 function clickSquare(e) {
@@ -118,7 +133,12 @@ function clickSquare(e) {
     if (game.isWon === true) {
       console.log("conditional main.js winner")
       // winTracker();
+      renderGame()
       disableAll();
+    } else {
+      showPlayerTurn();
+      // console.log("I WORKED")
+
     }
   };
 
@@ -141,24 +161,6 @@ function clickSquare(e) {
       c3.disabled = true;
     }
   };
-
-  // function winTracker() { ///// questionable
-  //     console.log("WIN TRACKER()", `${game.turn.name} WINS!`)
-  //     game.turn.wins++
-  //     game.turn.saveWinsToStorage();
-  // };
-
-
-
-
-// players must be re-instantiated on parse
-// consider going back to save playerdata array
-
-
-
-//problem is in game.instantiate
-
-
 
 
 // if statement in game start up, if parsedPlayerData > 1; instantiate
