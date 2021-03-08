@@ -14,7 +14,11 @@ class Game {
 
   winningGameData() {};
 
-  resetGame() {};
+  resetGame() {
+    setTimeout(function() {
+    console.log("WINNER!");
+    location.reload()  }, 2000);
+  };
 
   changePlayer() {
     if (this.turn.id === "1") {
@@ -37,19 +41,16 @@ class Game {
   checkWin() {
     if (this.player1Moves.includes("a1" && "a2" && "a3") ||
     this.player1Moves.includes("b1" && "b2" && "b3")) {
-      setTimeout(function() {
-      console.log("WINNER!"); }, 1000); // move to resetGame()
       this.isWon = true;
-      this.player1.wins++
-      console.log("check win log", this.player1.wins)
+      this.player1.wins++;
       this.turn.saveWinsToStorage();
+      this.resetGame();
     } else if (this.player2Moves.includes("a1" && "a2" && "a3") ||
     this.player2Moves.includes("b1" && "b2" && "b3")) {
-      setTimeout(function() {
-      console.log("WINNER!"); }, 1000); // move to resetGame()
       this.isWon = true;
-      this.turn.wins++
+      this.turn.wins++;
       this.turn.saveWinsToStorage();
+      this.resetGame()
     }
   }
 
