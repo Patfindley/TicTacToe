@@ -40,14 +40,27 @@ class Game {
   }
 
   checkWin() {
-    if (this.player1Moves.includes("a1" && "a2" && "a3") ||
-    this.player1Moves.includes("b1" && "b2" && "b3")) {
+    if (this.player1Moves.includes("a1") && this.player1Moves.includes("a2") && this.player1Moves.includes("a3") ||
+    this.player1Moves.includes("b1") && this.player1Moves.includes("b2") && this.player1Moves.includes("b3") ||
+    this.player1Moves.includes("c1") && this.player1Moves.includes("c2") && this.player1Moves.includes("c3") ||
+    this.player1Moves.includes("a2") && this.player1Moves.includes("b2") && this.player1Moves.includes("c2") ||
+    this.player1Moves.includes("a3") && this.player1Moves.includes("b3") && this.player1Moves.includes("c3") ||
+    this.player1Moves.includes("a1") && this.player1Moves.includes("b2") && this.player1Moves.includes("c3") ||
+    this.player1Moves.includes("c3") && this.player1Moves.includes("b2") && this.player1Moves.includes("a1")) {
+      console.log("winner")
       this.isWon = true;
       this.player1.wins++;
       this.turn.saveWinsToStorage();
       this.resetGame();
-    } else if (this.player2Moves.includes("a1" && "a2" && "a3") ||
-    this.player2Moves.includes("b1" && "b2" && "b3")) {
+    } else if (this.player2Moves.includes("a1") && this.player2Moves.includes("a2") && this.player2Moves.includes("a3") ||
+    this.player2Moves.includes("b1") && this.player2Moves.includes("b2") && this.player2Moves.includes("b3") ||
+    this.player2Moves.includes("c1") && this.player2Moves.includes("c2") && this.player2Moves.includes("c3") ||
+    this.player2Moves.includes("a2") && this.player2Moves.includes("b2") && this.player2Moves.includes("c2") ||
+    this.player2Moves.includes("a3") && this.player2Moves.includes("b3") && this.player2Moves.includes("c3") ||
+    this.player2Moves.includes("a1") && this.player2Moves.includes("b2") && this.player2Moves.includes("c3") ||
+    this.player2Moves.includes("c3") && this.player2Moves.includes("b2") && this.player2Moves.includes("a1")) {
+
+
       this.isWon = true;
       this.turn.wins++;
       this.turn.saveWinsToStorage();
@@ -60,7 +73,6 @@ class Game {
     if (localStorage.length > 0) {
       var retrievedData = localStorage.getItem("playerData")
       parsedPlayerData = JSON.parse(retrievedData);
-      console.log("parsedPlayerData >>>", parsedPlayerData);
       this.instantiatePlayerData(parsedPlayerData)
     }
   }

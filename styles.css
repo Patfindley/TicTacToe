@@ -84,13 +84,14 @@ font-size: 450%;
   justify-content: space-between;
   width: 65%;
   height: 65%;
-  /* margin: 5px auto; */
+
 }
 
 .block {
   border: 0;
-  width: 32%;
-  height: 32%;
+  border-radius: 5px;
+  width: 31%;
+  height: 31%;
   font-size: 475%;
   background-color: white;
 }
@@ -98,7 +99,7 @@ font-size: 450%;
 /* ******PLAYER 2 SIDE****** */
 
 .player-2-side {
-  background: linear-gradient(#36D1DC, #5B86E5);
+  background: linear-gradient(#5B86E5, #36D1DC);
   flex-grow: 1;
 }
 
