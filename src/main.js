@@ -104,7 +104,7 @@ function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
   // showPlayerTurn();
-  displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S ${game.turn.name} TURN!'`
+  displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S TURN!'`
   displayPlayerTurnToken.innerText = `${game.turn.name}`
 }
 
