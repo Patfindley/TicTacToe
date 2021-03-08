@@ -1,7 +1,7 @@
 /* *********GLOBAL********** */
-* {
+/* * {
   border: 1px red solid;
-}
+} */
 
 html {
   font-family: sans-serif;
@@ -45,12 +45,14 @@ button:disabled {
 
 /* *******GAME BOARD******** */
 
-/* .a1:disabled {
-  cursor: not-allowed;
-} */
-
 .display-player-turn-container {
+  width: 100%;
 
+}
+
+
+.display-player-turn {
+  text-align: center;
 }
 
 .game-area {
