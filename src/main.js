@@ -126,9 +126,10 @@ function clickSquare(e) {
       renderGame();
       winDisplay();
       disableAll();
-    } else {
+      } else {
       showPlayerTurn();
     }
+    game.turnCounter++
   };
 
   function winDisplay() {
@@ -158,9 +159,7 @@ function clickSquare(e) {
   };
 
 
-  // fix button color after disabled
-
-//event.target.disable for square disable
+// hover event listener add glow to box
 // give players unique tokens;
 // flip blue css gradient;
 // add function to determine who goes first based on wins;
