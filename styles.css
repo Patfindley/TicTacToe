@@ -1,7 +1,4 @@
 /* *********GLOBAL********** */
-/* * {
-  border: 1px red solid;
-} */
 
 html {
   font-family: sans-serif;
@@ -22,26 +19,15 @@ button:disabled {
   color:inherit;
 }
 
-/* ******PLAYER 1 SIDE****** */
-
-.player-1-side {
-  background: linear-gradient(#FF5F6D, #FFC371);
-  flex-grow: 1;
-}
-
-.player-1-container {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+.player-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .player-name {
   align-items: center;
   font-size: 250%;
-}
-
-.player-1-select {
-
 }
 
 .player-wins {
@@ -52,18 +38,25 @@ button:disabled {
   font-size: 200%;
 }
 
+/* ******PLAYER 1 SIDE****** */
+
+.player-1-side {
+  background: linear-gradient(#FF5F6D, #FFC371);
+  flex-grow: 1;
+}
+
+
 /* *******GAME BOARD******** */
 
 .display-player-turn-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  /* margin-bottom: 35%; */
 }
 
 .token {
 font-size: 450%;
-margin-bottom: 90%;
+margin: 0;
 }
 
 
@@ -78,7 +71,6 @@ margin-bottom: 90%;
   display:flex;
   flex-grow: 2;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 35%;
 }
@@ -121,14 +113,4 @@ margin-bottom: 90%;
 .player-2-side {
   background: linear-gradient(#5B86E5, #36D1DC);
   flex-grow: 1;
-}
-
-.player-2-container {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.player-2-name {
-  align-items: center;
 }
