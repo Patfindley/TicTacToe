@@ -94,7 +94,6 @@ function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
   if (game.turnCounter === 0) {
-    console.log("TURN COUNTER>>", game.turnCounter)
   displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S TURN!'`
   displayPlayerTurnToken.innerText = `${game.turn.name}`
   }
@@ -115,21 +114,25 @@ function clickSquare(e) {
   var square = event.target;
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
-      console.log(">>>>>GOT IT!<<<<<<", event.target.classList);
       square.innerText = `${game.turn.name}`;
       game.givePlayerSpot(squareIds[i]);
       game.checkWin();
       }
     }
-    if (game.isWon === true) {
-      console.log("conditional main.js winner")
+    if (game.turnCounter === 8) {
+      console.log("draw")
+      displayPlayerTurnId.innerText = `DRAW!`
+      displayPlayerTurnToken.innerText = `😢`
+      return
+    } else if (game.isWon === true) {
       renderGame();
       winDisplay();
       disableAll();
-      } else {
+    } else  {
       showPlayerTurn();
     }
     game.turnCounter++
+    console.log(game.turnCounter);
   };
 
   function winDisplay() {
