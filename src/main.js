@@ -27,37 +27,11 @@ gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
 })
 
-function mouseOver() {
-  if (game.turn.id === "1") {
-  event.target.style.border = "2px #FF8A6E solid";
-  event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
-  // setTimeout(function() {
-  //   event.target.style.border = "";
-  //   event.target.style.boxShadow = "";
-  // }, 500);
-} else if (game.turn.id === "2") {
-  event.target.style.border = "2px #4DA2E2 solid";
-  event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
-  // setTimeout(function() {
-  //   event.target.style.border = "";
-  //   event.target.style.boxShadow = "";
-  // }, 500);
-  // mouseOut()
-  }
-}
 
-function mouseOut() {
-  setTimeout(function() {
-    event.target.style.border = "";
-    event.target.style.boxShadow = "";
-  }, 500);
-  }
-
-//******GAME BOARD******
+//******GAME SQUARES******
 
 a1.addEventListener("click", function(event) {
   mouseOver();
-  // mouseOut();
   clickSquare();
   disableSquare();
 })
@@ -127,19 +101,21 @@ function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
   if (game.turnCounter === 0) {
-  displayPlayerTurnId.innerText = ` IT'S PLAYER ${game.turn.id}'S TURN!'`
-  displayPlayerTurnToken.innerText = `${game.turn.name}`
+    showPlayerTurn(game.turn.id, game.turn.name);
   }
 }
 
 function showPlayerTurn() {
   if (game.turn.id === "1") {
-  displayPlayerTurnId.innerText = `IT'S PLAYER ${game.player2.id}'S TURN!'`
-  displayPlayerTurnToken.innerText = `${game.player2.name}`
+    displayText(game.player1.id, game.player1.name);
   } else {
-    displayPlayerTurnId.innerText = `IT'S PLAYER ${game.player1.id}'S TURN!'`
-    displayPlayerTurnToken.innerText = `${game.player1.name}`
+    displayText(game.player2.id, game.player2.name);
   }
+}
+
+function displayText(id, name) {
+  displayPlayerTurnId.innerText = `IT'S PLAYER ${id}'S TURN!'`;
+  displayPlayerTurnToken.innerText = `${name}`;
 }
 
 function clickSquare(e) {
@@ -155,8 +131,8 @@ function clickSquare(e) {
     if (game.turnCounter === 8) {
       displayPlayerTurnId.innerText = `DRAW!`;
       displayPlayerTurnToken.innerText = `😢`;
+      game.winSequence();
     } else if (game.isWon === true) {
-      console.log("WINNER")
       renderGame();
       winDisplay();
       disableAll();
@@ -164,11 +140,9 @@ function clickSquare(e) {
       showPlayerTurn();
     }
     game.turnCounter++
-    console.log(game.turnCounter);
   };
 
   function winDisplay() {
-    console.log("I WORKED!");
     displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`;
     displayPlayerTurnToken.innerText = `${game.turn.name}`;
   }
@@ -197,18 +171,9 @@ function clickSquare(e) {
     if (game.turn.id === "1") {
     event.target.style.border = "2px #FF8A6E solid";
     event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
-    // setTimeout(function() {
-    //   event.target.style.border = "";
-    //   event.target.style.boxShadow = "";
-    // }, 500);
   } else if (game.turn.id === "2") {
     event.target.style.border = "2px #4DA2E2 solid";
     event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
-    // setTimeout(function() {
-    //   event.target.style.border = "";
-    //   event.target.style.boxShadow = "";
-    // }, 500);
-    // mouseOut()
     }
   }
 
@@ -220,8 +185,42 @@ function clickSquare(e) {
     }
 
 
-// hover event listener add glow to box
+//refactor!
 
+// 4:
+// *** Code is well refactored, DRY, follows SRP, and demonstrates
+// developer empathy. There are multiple examples of reusable functions.
+//There are no instances of repetitive code.
+//
+// *** No global variables are used aside from query selectors and
+// instance of Game. If you feel you need more because you are
+// building out additional functionality that requires a global variable,
+// please check in with an instructor.
+//
+// 3:
+// **The separation of data model logic and DOM logic is clear.
+// All DOM manipulation is handled exclusively in main.js.
+//
+// **The application correctly implements a data model for the
+// Player and Game classes, including all required methods.
+// The data model is kept up to date.
+//
+// **Developer demonstrates understanding and ability to
+// refactor code by having at least 1 example of DRY code
+// that was intentionally reused.
+//
+// **SRP is evidenced by clear, concise function names,
+ // and most functions only do what the name describes.
+
+// mouse out to change border
+
+//change fonts!
+
+//add win celebration
+
+//reset win counter button
+
+//play with inner grid borders
 
 // give players unique tokens;
 
