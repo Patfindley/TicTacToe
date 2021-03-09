@@ -23,9 +23,9 @@ window.addEventListener("load", function(event) {
   gameStart();
 })
 
-gameBoard.addEventListener("click", function(event) {
-  game.changePlayer(event);
-})
+// gameBoard.addEventListener("click", function(event) {
+//   game.changePlayer(event);
+// })
 
 //******GAME SQUARES******
 
@@ -100,8 +100,8 @@ function gameStart() {
 function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
-  if (game.turnCounter === 0) {
-    showPlayerTurn(game.turn.id, game.turn.name);
+  if (!game.turnCounter) {
+    showPlayerTurn();
   }
 }
 
@@ -121,10 +121,12 @@ function displayText(id, name) {
 function clickSquare(e) {
   var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
   var square = event.target;
+  game.turnCounter++
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
       square.innerText = `${game.turn.name}`;
       game.givePlayerSpot(squareIds[i]);
+      game.changePlayer();
       game.checkWin();
       }
     }
@@ -139,11 +141,10 @@ function clickSquare(e) {
     } else  {
       showPlayerTurn();
     }
-    game.turnCounter++
   };
 
   function winDisplay() {
-    displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`;
+    displayPlayerTurnId.innerText = `PLAYER ${game.turn.id} WINS!'`;
     displayPlayerTurnToken.innerText = `${game.turn.name}`;
   }
 
