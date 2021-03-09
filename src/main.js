@@ -27,7 +27,6 @@ gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
 })
 
-
 //******GAME SQUARES******
 
 a1.addEventListener("click", function(event) {
