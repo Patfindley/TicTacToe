@@ -23,62 +23,58 @@ window.addEventListener("load", function(event) {
   gameStart();
 })
 
-// gameBoard.addEventListener("click", function(event) {
-//   game.changePlayer(event);
-// })
-
 //******GAME SQUARES******
 
 a1.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 a2.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 a3.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare()
 })
 
 b1.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 b2.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 b3.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 c1.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 c2.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
 
 c3.addEventListener("click", function(event) {
-  mouseOver();
+  glowBox();
   clickSquare();
   disableSquare();
 })
@@ -168,52 +164,16 @@ function clickSquare(e) {
     }
   };
 
-  function mouseOver() {
+  function glowBox() {
     if (game.turn.id === "1") {
     event.target.style.border = "2px #FF8A6E solid";
     event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
   } else if (game.turn.id === "2") {
     event.target.style.border = "2px #4DA2E2 solid";
     event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
-    }
   }
+}
 
-  function mouseOut() {
-    setTimeout(function() {
-      event.target.style.border = "";
-      event.target.style.boxShadow = "";
-    }, 500);
-    }
-
-
-//refactor!
-
-// 4:
-// *** Code is well refactored, DRY, follows SRP, and demonstrates
-// developer empathy. There are multiple examples of reusable functions.
-//There are no instances of repetitive code.
-//
-// *** No global variables are used aside from query selectors and
-// instance of Game. If you feel you need more because you are
-// building out additional functionality that requires a global variable,
-// please check in with an instructor.
-//
-// 3:
-// **The separation of data model logic and DOM logic is clear.
-// All DOM manipulation is handled exclusively in main.js.
-//
-// **The application correctly implements a data model for the
-// Player and Game classes, including all required methods.
-// The data model is kept up to date.
-//
-// **Developer demonstrates understanding and ability to
-// refactor code by having at least 1 example of DRY code
-// that was intentionally reused.
-//
-// **SRP is evidenced by clear, concise function names,
- // and most functions only do what the name describes.
-
-// mouse out to change border
 
 //change fonts!
 
