@@ -9,8 +9,6 @@ class Game {
     this.player2Moves = [];
     this.playerData = [];
     this.isWon = false
-    this.playerData = [];
-    // this.isDraw = false;
   }
 
   winningGameData() {};
@@ -61,18 +59,26 @@ class Game {
     this.playerData = [];
     for (var i = 0; i < parsedPlayerData.length; i++) {
       if (parsedPlayerData[i].id === "1") {
-        console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
+        // console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
         var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
         this.player1 = parsedPlayer1
         this.playerData.push(this.player1);
       } else if (parsedPlayerData[i].id === "2") {
-        console.log("P2 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
+        // console.log("P2 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
         var parsedPlayer2 = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
         this.player2 = parsedPlayer2;
         this.playerData.push(this.player2);
       }
     }
   };
+
+  // parsePlayer() {
+  //   if (parsedPlayerData[i].id === "1") {
+  //     // console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
+  //     var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
+  //     this.player1 = parsedPlayer1
+  //     this.playerData.push(this.player1);
+  // }
 
   moveCheck(player) {
     if (player.includes("a1") && player.includes("a2") && player.includes("a3") ||
