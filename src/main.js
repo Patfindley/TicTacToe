@@ -27,59 +27,85 @@ gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
 })
 
-gameBoard.addEventListener("mouseover", function(event) {
-  event.target.style.border = "5px orange solid";
-  event.target.style.boxShadow = "inset 0 1px 3px orange"
+function mouseOver() {
+  if (game.turn.id === "1") {
+  event.target.style.border = "2px #FF8A6E solid";
+  event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
+  // setTimeout(function() {
+  //   event.target.style.border = "";
+  //   event.target.style.boxShadow = "";
+  // }, 500);
+} else if (game.turn.id === "2") {
+  event.target.style.border = "2px #4DA2E2 solid";
+  event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
+  // setTimeout(function() {
+  //   event.target.style.border = "";
+  //   event.target.style.boxShadow = "";
+  // }, 500);
+  // mouseOut()
+  }
+}
+
+function mouseOut() {
   setTimeout(function() {
     event.target.style.border = "";
+    event.target.style.boxShadow = "";
   }, 500);
-}, false);
-// })
-
+  }
 
 //******GAME BOARD******
 
 a1.addEventListener("click", function(event) {
+  mouseOver();
+  // mouseOut();
   clickSquare();
   disableSquare();
 })
 
 a2.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 a3.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare()
 })
 
 b1.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 b2.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 b3.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 c1.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 c2.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
 
 c3.addEventListener("click", function(event) {
+  mouseOver();
   clickSquare();
   disableSquare();
 })
@@ -127,7 +153,6 @@ function clickSquare(e) {
       }
     }
     if (game.turnCounter === 8) {
-      console.log("draw")
       displayPlayerTurnId.innerText = `DRAW!`;
       displayPlayerTurnToken.innerText = `😢`;
     } else if (game.isWon === true) {
@@ -168,9 +193,36 @@ function clickSquare(e) {
     }
   };
 
+  function mouseOver() {
+    if (game.turn.id === "1") {
+    event.target.style.border = "2px #FF8A6E solid";
+    event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
+    // setTimeout(function() {
+    //   event.target.style.border = "";
+    //   event.target.style.boxShadow = "";
+    // }, 500);
+  } else if (game.turn.id === "2") {
+    event.target.style.border = "2px #4DA2E2 solid";
+    event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
+    // setTimeout(function() {
+    //   event.target.style.border = "";
+    //   event.target.style.boxShadow = "";
+    // }, 500);
+    // mouseOut()
+    }
+  }
+
+  function mouseOut() {
+    setTimeout(function() {
+      event.target.style.border = "";
+      event.target.style.boxShadow = "";
+    }, 500);
+    }
+
 
 // hover event listener add glow to box
+
+
 // give players unique tokens;
-// flip blue css gradient;
+
 // add function to determine who goes first based on wins;
-// div in a div for the token to grow
