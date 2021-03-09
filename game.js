@@ -18,10 +18,10 @@ class Game {
   }
 
   changePlayer() {
-    if (this.turn.id === "1") {
+    if (this.turn.id === this.player1.id) {
     this.turn = this.player2;
     return console.log(`${this.turn.name}'s turn!'`);
-  } else if (this.turn.id === "2") {
+  } else if (this.turn.id === this.player2.id) {
     this.turn = this.player1;
     return console.log(`${this.turn.name}'s turn!'`);
     }
