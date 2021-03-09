@@ -27,7 +27,14 @@ gameBoard.addEventListener("click", function(event) {
   game.changePlayer(event);
 })
 
-
+gameBoard.addEventListener("mouseover", function(event) {
+  event.target.style.border = "5px orange solid";
+  event.target.style.boxShadow = "inset 0 1px 3px orange"
+  setTimeout(function() {
+    event.target.style.border = "";
+  }, 500);
+}, false);
+// })
 
 
 //******GAME BOARD******
@@ -110,7 +117,7 @@ function showPlayerTurn() {
 }
 
 function clickSquare(e) {
-  var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+  var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
   var square = event.target;
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
@@ -121,10 +128,10 @@ function clickSquare(e) {
     }
     if (game.turnCounter === 8) {
       console.log("draw")
-      displayPlayerTurnId.innerText = `DRAW!`
-      displayPlayerTurnToken.innerText = `😢`
-      return
+      displayPlayerTurnId.innerText = `DRAW!`;
+      displayPlayerTurnToken.innerText = `😢`;
     } else if (game.isWon === true) {
+      console.log("WINNER")
       renderGame();
       winDisplay();
       disableAll();
@@ -137,8 +144,8 @@ function clickSquare(e) {
 
   function winDisplay() {
     console.log("I WORKED!");
-    displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`
-    displayPlayerTurnToken.innerText = `${game.turn.name}`
+    displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`;
+    displayPlayerTurnToken.innerText = `${game.turn.name}`;
   }
 
   function disableSquare() {
