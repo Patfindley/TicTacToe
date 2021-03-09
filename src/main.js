@@ -88,8 +88,9 @@ c3.addEventListener("click", function(event) {
 //****FUNCTIONS****
 
 function gameStart() {
-  game.loadPlayerData();
   if (game.playerData.length === 0) {
+    game.player1.loadPlayerData();
+    game.player2.loadPlayerData();
     game.playerData.push(game.player1);
     game.playerData.push(game.player2);
   }
@@ -113,7 +114,7 @@ function showPlayerTurn() {
 }
 
 function displayText(id, name) {
-  displayPlayerTurnId.innerText = `IT'S PLAYER ${id}'S TURN!'`;
+  displayPlayerTurnId.innerText = `IT'S PLAYER ${id}'S TURN!`;
   displayPlayerTurnToken.innerText = `${name}`;
 }
 

@@ -45,41 +45,6 @@ class Game {
     }
   }
 
-  loadPlayerData() {
-    var parsedPlayerData = [];
-    if (localStorage.length > 0) {
-      var retrievedData = localStorage.getItem("playerData")
-      parsedPlayerData = JSON.parse(retrievedData);
-      this.instantiatePlayerData(parsedPlayerData)
-    }
-  }
-
-  instantiatePlayerData(parsedPlayerData) {
-    var parsedPlayer;
-    this.playerData = [];
-    for (var i = 0; i < parsedPlayerData.length; i++) {
-      if (parsedPlayerData[i].id === "1") {
-        // console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
-        var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
-        this.player1 = parsedPlayer1
-        this.playerData.push(this.player1);
-      } else if (parsedPlayerData[i].id === "2") {
-        // console.log("P2 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
-        var parsedPlayer2 = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
-        this.player2 = parsedPlayer2;
-        this.playerData.push(this.player2);
-      }
-    }
-  };
-
-  // parsePlayer() {
-  //   if (parsedPlayerData[i].id === "1") {
-  //     // console.log("P1 MATCH!!", parsedPlayerData[i].id, parsedPlayerData[i])
-  //     var parsedPlayer1  = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
-  //     this.player1 = parsedPlayer1
-  //     this.playerData.push(this.player1);
-  // }
-
   moveCheck(player) {
     if (player.includes("a1") && player.includes("a2") && player.includes("a3") ||
     player.includes("b1") && player.includes("b2") && player.includes("b3") ||
@@ -105,17 +70,4 @@ class Game {
     }
   }
 
-
 }
-
-
-
-// A game.js file that contains a Game class.
-// A Game should include:
-// Two Player instances
-// A way to keep track of the data for the game board
-// A way to keep track of which player’s turn it currently is
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-// A way to save a winning Game’s board data to the correct player’s wins array
-// A way to reset the Game’s board to begin a new game
