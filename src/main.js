@@ -121,6 +121,7 @@ function displayText(id, name) {
 function clickSquare(e) {
   var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
   var square = event.target;
+  game.turnCounter++
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
       square.innerText = `${game.turn.name}`;
@@ -139,7 +140,6 @@ function clickSquare(e) {
     } else  {
       showPlayerTurn();
     }
-    game.turnCounter++
   };
 
   function winDisplay() {

@@ -11,13 +11,11 @@ class Game {
     this.isWon = false
   }
 
-  winningGameData() {};
-
   resetGame() {
     setTimeout(function() {
     console.log("WINNER!");
     location.reload()  }, 2000);
-  };
+  }
 
   changePlayer() {
     if (this.turn.id === "1") {
@@ -27,7 +25,7 @@ class Game {
     this.turn = this.player1;
     return console.log(`${this.turn.name}'s turn!'`);
     }
-  };
+  }
 
   givePlayerSpot(move) {
   if (this.turn.id === this.player1.id) {
