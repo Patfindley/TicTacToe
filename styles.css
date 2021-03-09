@@ -58,10 +58,12 @@ button:disabled {
   display: flex;
   justify-content: center;
   width: 100%;
+  /* margin-bottom: 35%; */
 }
 
 .token {
 font-size: 450%;
+margin-bottom: 90%;
 }
 
 
@@ -70,21 +72,38 @@ font-size: 450%;
 }
 
 .game-area {
-  background: linear-gradient(#FFC371,#64f38c, #36D1DC);
+  background: linear-gradient(-45deg, #5B86E5, #36D1DC, #FFC371, #FF5F6D);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   display:flex;
   flex-grow: 2;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 35%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .game-board {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 65%;
-  height: 65%;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40%;
+    max-width: inherit;
+    height: 50%;
+    margin-top: 20%;
+    position: absolute;
 }
 
 .block {
@@ -92,9 +111,10 @@ font-size: 450%;
   border-radius: 5px;
   width: 31%;
   height: 31%;
-  font-size: 475%;
+  font-size: 450%;
   background-color: white;
 }
+
 
 /* ******PLAYER 2 SIDE****** */
 

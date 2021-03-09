@@ -82,15 +82,15 @@ class Game {
     player.includes("a2") && player.includes("b2") && player.includes("c2") ||
     player.includes("a3") && player.includes("b3") && player.includes("c3") ||
     player.includes("a1") && player.includes("b2") && player.includes("c3") ||
-    player.includes("c3") && player.includes("b2") && player.includes("a1")) {
+    player.includes("c3") && player.includes("b2") && player.includes("a1") ||
+    player.includes("a3") && player.includes("b2") && player.includes("c1")) {
       return true;
     }
   }
 
   winSequence() {
-    if (this.turnCounter <= 9) {
+    if (this.turnCounter >= 8) {
       this.resetGame();
-      return
     } else {
     this.isWon = true;
     this.turn.wins++;
