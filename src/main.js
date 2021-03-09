@@ -23,9 +23,9 @@ window.addEventListener("load", function(event) {
   gameStart();
 })
 
-gameBoard.addEventListener("click", function(event) {
-  game.changePlayer(event);
-})
+// gameBoard.addEventListener("click", function(event) {
+//   game.changePlayer(event);
+// })
 
 //******GAME SQUARES******
 
@@ -100,8 +100,8 @@ function gameStart() {
 function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
-  if (game.turnCounter === 0) {
-    showPlayerTurn(game.turn.id, game.turn.name);
+  if (!game.turnCounter) {
+    showPlayerTurn();
   }
 }
 
@@ -126,6 +126,7 @@ function clickSquare(e) {
     if (event.target.classList.contains(squareIds[i])) {
       square.innerText = `${game.turn.name}`;
       game.givePlayerSpot(squareIds[i]);
+      game.changePlayer();
       game.checkWin();
       }
     }
@@ -143,7 +144,7 @@ function clickSquare(e) {
   };
 
   function winDisplay() {
-    displayPlayerTurnId.innerText = ` PLAYER ${game.turn.id} WINS!'`;
+    displayPlayerTurnId.innerText = `PLAYER ${game.turn.id} WINS!'`;
     displayPlayerTurnToken.innerText = `${game.turn.name}`;
   }
 
