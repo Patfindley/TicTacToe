@@ -40,31 +40,10 @@ class Game {
   }
 
   checkWin() {
-    if (this.player1Moves.includes("a1") && this.player1Moves.includes("a2") && this.player1Moves.includes("a3") ||
-    this.player1Moves.includes("b1") && this.player1Moves.includes("b2") && this.player1Moves.includes("b3") ||
-    this.player1Moves.includes("c1") && this.player1Moves.includes("c2") && this.player1Moves.includes("c3") ||
-    this.player1Moves.includes("a2") && this.player1Moves.includes("b2") && this.player1Moves.includes("c2") ||
-    this.player1Moves.includes("a3") && this.player1Moves.includes("b3") && this.player1Moves.includes("c3") ||
-    this.player1Moves.includes("a1") && this.player1Moves.includes("b2") && this.player1Moves.includes("c3") ||
-    this.player1Moves.includes("c3") && this.player1Moves.includes("b2") && this.player1Moves.includes("a1")) {
-      console.log("winner")
-      this.isWon = true;
-      this.player1.wins++;
-      this.turn.saveWinsToStorage();
-      this.resetGame();
-    } else if (this.player2Moves.includes("a1") && this.player2Moves.includes("a2") && this.player2Moves.includes("a3") ||
-    this.player2Moves.includes("b1") && this.player2Moves.includes("b2") && this.player2Moves.includes("b3") ||
-    this.player2Moves.includes("c1") && this.player2Moves.includes("c2") && this.player2Moves.includes("c3") ||
-    this.player2Moves.includes("a2") && this.player2Moves.includes("b2") && this.player2Moves.includes("c2") ||
-    this.player2Moves.includes("a3") && this.player2Moves.includes("b3") && this.player2Moves.includes("c3") ||
-    this.player2Moves.includes("a1") && this.player2Moves.includes("b2") && this.player2Moves.includes("c3") ||
-    this.player2Moves.includes("c3") && this.player2Moves.includes("b2") && this.player2Moves.includes("a1")) {
-
-
-      this.isWon = true;
-      this.turn.wins++;
-      this.turn.saveWinsToStorage();
-      this.resetGame()
+    if (this.moveCheck(this.player1Moves)) {
+      this.winSequence();
+    } else if (this.moveCheck(this.player2Moves)) {
+      this.winSequence();
     }
   }
 
@@ -94,6 +73,31 @@ class Game {
       }
     }
   };
+
+  moveCheck(player) {
+    if (player.includes("a1") && player.includes("a2") && player.includes("a3") ||
+    player.includes("b1") && player.includes("b2") && player.includes("b3") ||
+    player.includes("c1") && player.includes("c2") && player.includes("c3") ||
+    player.includes("a1") && player.includes("b1") && player.includes("c1") ||
+    player.includes("a2") && player.includes("b2") && player.includes("c2") ||
+    player.includes("a3") && player.includes("b3") && player.includes("c3") ||
+    player.includes("a1") && player.includes("b2") && player.includes("c3") ||
+    player.includes("c3") && player.includes("b2") && player.includes("a1")) {
+      return true;
+    }
+  }
+
+  winSequence() {
+    if (this.turnCounter <= 9) {
+      this.resetGame();
+      return
+    } else {
+    this.isWon = true;
+    this.turn.wins++;
+    this.turn.saveWinsToStorage();
+    this.resetGame();
+    }
+  }
 
 
 }
