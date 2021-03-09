@@ -26,8 +26,11 @@ button:disabled {
 }
 
 .player-name {
-  align-items: center;
   font-size: 250%;
+}
+
+.player-token {
+  font-size: 350%;
 }
 
 .player-wins {
