@@ -102,15 +102,15 @@ function renderGame() {
   player1WinCounter.innerText = `${game.player1.wins}`
   player2WinCounter.innerText = `${game.player2.wins}`
   if (!game.turnCounter) {
-    showPlayerTurn();
+    displayText(game.player1.id, game.player1.name);
   }
 }
 
 function showPlayerTurn() {
-  if (game.turn.id === "1") {
-    displayText(game.player1.id, game.player1.name);
-  } else {
+  if (game.turn.id === game.player1.id) {
     displayText(game.player2.id, game.player2.name);
+  } else {
+    displayText(game.player1.id, game.player1.name);
   }
 }
 
