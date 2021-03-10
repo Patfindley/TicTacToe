@@ -16,7 +16,7 @@ The goal of this project was not just to implement all of the javascript, HTML, 
 
 The Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html)
 
-![project gif]()
+![project gif](https://media.giphy.com/media/haY9oMn9YihCOe5QTB/giphy.gif)
 
 ## Functionality
 *Tic Tac Toe: Turn based strategy game*
