@@ -86,7 +86,6 @@ c3.addEventListener("click", function(event) {
 function gameStart() {
   if (game.playerData.length === 0) {
     game.player1.loadPlayerData();
-    game.player2.loadPlayerData();
     game.playerData.push(game.player1);
     game.playerData.push(game.player2);
   }
@@ -175,14 +174,6 @@ function clickSquare(e) {
 }
 
 
-//change fonts!
-
-//add win celebration
-
 //reset win counter button
 
 //play with inner grid borders
-
-// give players unique tokens;
-
-// add function to determine who goes first based on wins;
