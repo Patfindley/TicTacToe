@@ -1,72 +1,55 @@
 /* *********GLOBAL********** */
-
 html {
   display: flex;
   align-items: stretch;
   justify-content: center;
   height: 100%;
+  background: linear-gradient(-45deg, #36D1DC, #5B86E5, #FFC371, #FF5F6D);
   font-family: sans-serif;
-
 }
-
 body {
   display: flex;
   flex: auto;
   align-items: stretch;
 }
-
 button:disabled {
   color:inherit;
 }
-
 .player-container {
   display:flex;
   flex-direction: column;
   align-items: center;
 }
-
 .player-name {
   font-size: 250%;
 }
-
 .player-token {
   font-size: 350%;
 }
-
 .player-wins {
   font-size: 200%;
 }
-
 .player-wins-counter {
   font-size: 200%;
 }
-
 /* ******PLAYER 1 SIDE****** */
-
 .player-1-side {
   flex-grow: 1;
   background: linear-gradient(#FF5F6D, #FFC371);
 }
-
-
 /* *******GAME BOARD******** */
-
 .display-player-turn-container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
 .token {
 margin: 0;
 font-size: 450%;
 }
-
-
 .display-player-turn {
   text-align: center;
 }
-
 .game-area {
   display:flex;
   flex-grow: 2;
@@ -77,7 +60,6 @@ font-size: 450%;
   background: linear-gradient(-45deg, #5B86E5, #36D1DC, #FFC371, #FF5F6D);
   background-size: 400% 400%;
 }
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -89,7 +71,6 @@ font-size: 450%;
 		background-position: 0% 50%;
 	}
 }
-
 .game-board {
   position: absolute;
   display: flex;
@@ -100,7 +81,6 @@ font-size: 450%;
   max-width: inherit;
   height: 50%;
 }
-
 .block {
   border: 0;
   border-radius: 5px;
@@ -109,10 +89,13 @@ font-size: 450%;
   background-color: white;
   font-size: 450%;
 }
-
-
+.reset-score {
+  margin-top: 780%;
+  border-radius: 50px;
+  background: linear-gradient(-45deg, #5B86E5, #36D1DC, #FFC371, #FF5F6D);
+  width: 100%;
+}
 /* ******PLAYER 2 SIDE****** */
-
 .player-2-side {
   flex-grow: 1;
   background: linear-gradient(#5B86E5, #36D1DC);

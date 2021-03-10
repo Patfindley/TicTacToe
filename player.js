@@ -12,20 +12,19 @@ class Player {
   };
 
   loadPlayerData() {
-    var parsedPlayerData = [];
-    console.log("loadPlayerData", parsedPlayerData)
+    var parsedPlayers = [];
     if (localStorage.length > 0) {
       var retrievedData = localStorage.getItem("playerData")
-      parsedPlayerData = JSON.parse(retrievedData);
-      this.parsePlayer(parsedPlayerData)
+      parsedPlayers = JSON.parse(retrievedData);
+      this.parsePlayer(parsedPlayers)
     }
   }
 
-  parsePlayer(parsedPlayerData) {
+  parsePlayer(parsedPlayers) {
     game.playerData = [];
-    for (var i = 0; i < parsedPlayerData.length; i++) {
-      if (parsedPlayerData[i].id === this.id) {
-        var parsedPlayer = new Player(parsedPlayerData[i].id, parsedPlayerData[i].name, parsedPlayerData[i].wins);
+    for (var i = 0; i < parsedPlayers.length; i++) {
+      if (parsedPlayers[i].id === this.id) {
+        var parsedPlayer = new Player(parsedPlayers[i].id, parsedPlayers[i].name, parsedPlayers[i].wins);
         if (this.id === "1") {
           game.player1 = parsedPlayer;
         } else if (this.id === "2") {
