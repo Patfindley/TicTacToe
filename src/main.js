@@ -4,6 +4,7 @@ var player1WinCounter = document.getElementById("player1WinCounter");
 var player2WinCounter = document.getElementById("player2WinCounter");
 var displayPlayerTurnId = document.getElementById("displayPlayerTurnId");
 var displayPlayerTurnToken = document.getElementById("displayPlayerTurnToken");
+var resetScoreButton = document.getElementById("resetScore");
 // *****ROW A*****
 var a1 = document.getElementById("a1");
 var a2 = document.getElementById("a2");
@@ -21,6 +22,10 @@ var game = new Game;
 // *****EVENT LISTERS*****
 window.addEventListener("load", function(event) {
   gameStart();
+})
+
+resetScoreButton.addEventListener("click", function(event) {
+  noWhy();
 })
 
 //******GAME SQUARES******
@@ -86,6 +91,7 @@ c3.addEventListener("click", function(event) {
 function gameStart() {
   if (game.playerData.length === 0) {
     game.player1.loadPlayerData();
+    game.player2.loadPlayerData();
     game.playerData.push(game.player1);
     game.playerData.push(game.player2);
   }
@@ -116,12 +122,10 @@ function displayText(id, name) {
 function clickSquare(e) {
   var squareIds = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
   var square = event.target;
-  game.turnCounter++
   for (var i = 0; i < squareIds.length; i++) {
     if (event.target.classList.contains(squareIds[i])) {
       square.innerText = `${game.turn.name}`;
       game.givePlayerSpot(squareIds[i]);
-      game.changePlayer();
       game.checkWin();
       }
     }
@@ -136,44 +140,50 @@ function clickSquare(e) {
     } else  {
       showPlayerTurn();
     }
+    game.changePlayer();
+    game.turnCounter++
   };
 
-  function winDisplay() {
-    displayPlayerTurnId.innerText = `PLAYER ${game.turn.id} WINS!'`;
-    displayPlayerTurnToken.innerText = `${game.turn.name}`;
+function winDisplay() {
+  displayPlayerTurnId.innerText = `PLAYER ${game.turn.id} WINS!'`;
+  displayPlayerTurnToken.innerText = `${game.turn.name}`;
+}
+
+function disableSquare() {
+  square = event.target;
+  square.disabled = true;
+};
+
+function disableAll() {
+  if (game.isWon) {
+
+    a1.disabled = true;
+    a2.disabled = true;
+    a3.disabled = true;
+    b1.disabled = true;
+    b2.disabled = true;
+    b3.disabled = true;
+    c1.disabled = true;
+    c2.disabled = true;
+    c3.disabled = true;
   }
+};
 
-  function disableSquare() {
-    square = event.target;
-    square.disabled = true;
-  };
-
-  function disableAll() {
-    if (game.isWon) {
-      console.log(">>BUTTONS DISABLED<<")
-      a1.disabled = true;
-      a2.disabled = true;
-      a3.disabled = true;
-      b1.disabled = true;
-      b2.disabled = true;
-      b3.disabled = true;
-      c1.disabled = true;
-      c2.disabled = true;
-      c3.disabled = true;
-    }
-  };
-
-  function glowBox() {
-    if (game.turn.id === "1") {
+function glowBox() {
+  if (game.turn.id === "1") {
     event.target.style.border = "2px #FF8A6E solid";
-    event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E"
+    event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E";
   } else if (game.turn.id === "2") {
     event.target.style.border = "2px #4DA2E2 solid";
-    event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2"
+    event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2";
   }
 }
 
-
-//reset win counter button
-
-//play with inner grid borders
+function noWhy() {
+  var storage = window.localStorage;
+  displayPlayerTurnId.innerText = "NOOOOOOO WHYYYYYYYYYY"
+  displayPlayerTurnToken.innerText = "🤯"
+  setTimeout(function() {
+    storage.clear();
+    location.reload(); }, 2000);
+}

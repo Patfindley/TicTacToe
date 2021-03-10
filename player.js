@@ -13,7 +13,6 @@ class Player {
 
   loadPlayerData() {
     var parsedPlayers = [];
-    console.log("loadPlayerData", parsedPlayers)
     if (localStorage.length > 0) {
       var retrievedData = localStorage.getItem("playerData")
       parsedPlayers = JSON.parse(retrievedData);

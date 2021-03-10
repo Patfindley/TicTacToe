@@ -22,6 +22,7 @@ The Project spec & rubric can be found [here](https://frontend.turing.io/project
 *Tic Tac Toe: Turn based strategy game*
 - Play Tic Tac Toe!
 - Keep track of wins!
+- WIPE WINS!
 
 #### Technologies Used
 - JavaScript

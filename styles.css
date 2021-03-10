@@ -110,6 +110,12 @@ font-size: 450%;
   font-size: 450%;
 }
 
+.reset-score {
+  margin-top: 950%;
+  border-radius: 50px;
+  background: linear-gradient(-45deg, #5B86E5, #36D1DC, #FFC371, #FF5F6D);
+  width: 100%;
+}
 
 /* ******PLAYER 2 SIDE****** */
 

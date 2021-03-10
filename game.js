@@ -13,17 +13,14 @@ class Game {
 
   resetGame() {
     setTimeout(function() {
-    console.log("WINNER!");
-    location.reload()  }, 2000);
+    location.reload();  }, 2000);
   }
 
   changePlayer() {
     if (this.turn.id === this.player1.id) {
     this.turn = this.player2;
-    return console.log(`${this.turn.name}'s turn!'`);
   } else if (this.turn.id === this.player2.id) {
     this.turn = this.player1;
-    return console.log(`${this.turn.name}'s turn!'`);
     }
   }
 
