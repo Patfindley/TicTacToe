@@ -17,18 +17,22 @@ class Game {
   }
 
   changePlayer() {
-    if (this.turn.id === this.player1.id) {
-    this.turn = this.player2;
-  } else if (this.turn.id === this.player2.id) {
-    this.turn = this.player1;
+    switch(this.turn.id) {
+      case this.player1.id:
+        this.turn = this.player2;
+        break;
+      case this.player2.id:
+          this.turn = this.player1;
     }
   }
 
   givePlayerSpot(move) {
-  if (this.turn.id === this.player1.id) {
-    this.player1Moves.push(move);
-    } else if (this.turn === this.player2){
-      this.player2Moves.push(move);
+    switch(this.turn.id) {
+      case this.player1.id:
+        this.player1Moves.push(move);
+        break;
+      case this.player2.id:
+        this.player2Moves.push(move);
     }
   }
 

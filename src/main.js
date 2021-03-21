@@ -5,6 +5,7 @@ var player2WinCounter = document.getElementById("player2WinCounter");
 var displayPlayerTurnId = document.getElementById("displayPlayerTurnId");
 var displayPlayerTurnToken = document.getElementById("displayPlayerTurnToken");
 var resetScoreButton = document.getElementById("resetScore");
+
 // *****ROW A*****
 var a1 = document.getElementById("a1");
 var a2 = document.getElementById("a2");
@@ -30,59 +31,65 @@ resetScoreButton.addEventListener("click", function(event) {
 
 //******GAME SQUARES******
 
-a1.addEventListener("click", function(event) {
+gameBoard.addEventListener("click", function(event) {
   glowBox();
   clickSquare();
   disableSquare();
 })
 
-a2.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-a3.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare()
-})
-
-b1.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-b2.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-b3.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-c1.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-c2.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
-
-c3.addEventListener("click", function(event) {
-  glowBox();
-  clickSquare();
-  disableSquare();
-})
+// a1.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// a2.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// a3.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare()
+// })
+//
+// b1.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// b2.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// b3.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// c1.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// c2.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
+//
+// c3.addEventListener("click", function(event) {
+//   glowBox();
+//   clickSquare();
+//   disableSquare();
+// })
 
 
 
@@ -107,12 +114,16 @@ function renderGame() {
 }
 
 function showPlayerTurn() {
-  if (game.turn.id === game.player1.id) {
-    displayText(game.player2.id, game.player2.name);
-  } else {
-    displayText(game.player1.id, game.player1.name);
+  switch(game.turn.id) {
+    case game.player1.id:
+      displayText(game.player2.id, game.player2.name);
+      break;
+    case game.player2.id:
+      displayText(game.player1.id, game.player1.name);
+      break;
   }
 }
+
 
 function displayText(id, name) {
   displayPlayerTurnId.innerText = `IT'S PLAYER ${id}'S TURN!`;
@@ -170,14 +181,18 @@ function disableAll() {
 };
 
 function glowBox() {
-  if (game.turn.id === "1") {
-    event.target.style.border = "2px #FF8A6E solid";
-    event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E";
-  } else if (game.turn.id === "2") {
+  switch(game.turn.id) {
+    case game.player1.id:
+      event.target.style.border = "2px #FF8A6E solid";
+      event.target.style.boxShadow = "inset 0 1px 3px #FF8A6E";
+      break;
+    case game.player2.id:
     event.target.style.border = "2px #4DA2E2 solid";
     event.target.style.boxShadow = "inset 0 1px 3px #4DA2E2";
+    break;
   }
 }
+
 
 function noWhy() {
   var storage = window.localStorage;
